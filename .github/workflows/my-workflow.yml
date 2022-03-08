@@ -36,8 +36,8 @@ jobs:
           echo test, and deploy your project.
           
           name: Docker Actions
-
-on: [push]
+          
+          on: [push]
 
 jobs:
   action:
@@ -59,3 +59,20 @@ jobs:
 
       - name: hello-action
         uses: ./.github/actions/hello-world
+        
+        name: "Docker Actions"
+
+on: [push]
+
+jobs:
+  action:
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: "hello-action"
+        uses: ./.github/actions/hello-world
+        with:
+          firstGreeting: "Learning Lab User"
+
+
